@@ -7,6 +7,9 @@ import {
 import { Body, Head, Html, Meta, Scripts } from '@tanstack/start'
 import type { ReactNode } from 'react'
 
+import globalStyle from '../main.css?url'
+import sourceSans from '@fontsource-variable/source-sans-3?url';
+
 export const Route = createRootRoute({
   meta: () => [
     {
@@ -20,7 +23,24 @@ export const Route = createRootRoute({
       title: 'TanStack Start Starter',
     },
   ],
+  links: () => [
+    {
+      href: globalStyle,
+      rel: 'stylesheet'
+    },
+    {
+      href: sourceSans,
+      rel: 'stylesheet'
+    }
+  ],
   component: RootComponent,
+  notFoundComponent: () => (
+    <RootDocument>
+      <div>
+        <h1>404</h1>
+      </div>
+    </RootDocument>
+  ),
 })
 
 function RootComponent() {
@@ -38,7 +58,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Meta />
       </Head>
       <Body>
-        {children}
+        <div className="font-source-sans">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </Body>
