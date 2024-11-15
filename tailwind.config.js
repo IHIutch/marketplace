@@ -1,3 +1,8 @@
+import tailwindForms from '@tailwindcss/forms'
+import tailwindTypography from '@tailwindcss/typography'
+import tailwindAnimate from "tailwindcss-animate"
+import tailwindContainerQueries from "@tailwindcss/container-queries"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,6 +11,29 @@ export default {
   theme: {
     fontFamily: {
       "source-sans": '"Source Sans 3 Variable", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif',
+      "merriweather": '"Merriweather", "Georgia", "Cambria", "Times New Roman", "Times", serif',
+    },
+    screens: {
+      card: "160px",
+      "card-lg": "240px",
+      mobile: "320px",
+      "mobile-lg": "480px",
+      tablet: "640px",
+      "tablet-lg": "880px",
+      desktop: "1024px",
+      "desktop-lg": "1200px",
+      widescreen: "1400px",
+    },
+    containers: {
+      card: "160px",
+      "card-lg": "240px",
+      mobile: "320px",
+      "mobile-lg": "480px",
+      tablet: "640px",
+      "tablet-lg": "880px",
+      desktop: "1024px",
+      "desktop-lg": "1200px",
+      widescreen: "1400px",
     },
     colors: {
       transparent: 'transparent',
@@ -475,6 +503,13 @@ export default {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    tailwindAnimate,
+    tailwindContainerQueries,
+    tailwindTypography(),
+    tailwindForms({
+      strategy: 'class'
+    }),
+  ],
 }
 

@@ -4,11 +4,10 @@ import {
   ScrollRestoration,
   createRootRoute,
 } from '@tanstack/react-router'
-import { Body, Head, Html, Meta, Scripts } from '@tanstack/start'
+import { Meta, Scripts } from '@tanstack/start'
 import type { ReactNode } from 'react'
 
 import globalStyle from '../main.css?url'
-import sourceSans from '@fontsource-variable/source-sans-3?url';
 
 export const Route = createRootRoute({
   meta: () => [
@@ -28,10 +27,6 @@ export const Route = createRootRoute({
       href: globalStyle,
       rel: 'stylesheet'
     },
-    {
-      href: sourceSans,
-      rel: 'stylesheet'
-    }
   ],
   component: RootComponent,
   notFoundComponent: () => (
@@ -53,15 +48,15 @@ function RootComponent() {
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <Html>
-      <Head>
+    <html>
+      <head>
         <Meta />
-      </Head>
-      <Body>
-        <div className="font-source-sans">{children}</div>
+      </head>
+      <body>
+        {children}
         <ScrollRestoration />
         <Scripts />
-      </Body>
-    </Html>
+      </body>
+    </html>
   )
 }
