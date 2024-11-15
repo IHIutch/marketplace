@@ -25,7 +25,7 @@ const getItems = createServerFn({ method: 'GET' }).handler(() => {
   return readItems()
 })
 
-const updateItems = createServerFn({ method: "GET" })
+const updateItems = createServerFn({ method: "POST" })
   .validator(data => {
     return itemSchema.extend({ idx: z.number() }).parse(data)
   })
@@ -112,7 +112,7 @@ function Home() {
         </div>
       </div>
 
-      <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
+      <Dialog.Root key={activeIdx} open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
         <Portal>
           <Dialog.Backdrop className='fixed z-40 inset-0 bg-black/70 animate-in ease-in-out duration-150 fade-in' />
           <Dialog.Positioner className='fixed inset-0 overflow-y-auto flex items-center justify-center p-4 z-50 animate-in ease-in-out duration-150 fade-in'>
@@ -132,7 +132,6 @@ function Home() {
                   }).then(() => {
                     router.invalidate()
                     setIsOpen(false)
-                    target.reset()
                   })
                 }}>
                 <div>
