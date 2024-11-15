@@ -85,8 +85,10 @@ function Home() {
           </div>
           <div className='mt-8 grid grid-cols-1 tablet-lg:grid-cols-2 desktop:grid-cols-3 gap-6'>
             {items ? items.map((item, idx) => (
-              <button onClick={() => handleOpenModal(idx)} key={idx} className='p-4 rounded-lg border border-gray-cool-20 text-left'>
-                <p className='text-xl font-bold mb-2'>{item.name}</p>
+              <div key={idx} className='p-4 rounded-lg border border-gray-cool-20 relative focus-within:outline focus-within:outline-4 focus-within:outline-offset-4 focus-within:outline-blue-40v'>
+                <button onClick={() => handleOpenModal(idx)} className='text-left text-xl font-bold after:absolute after:inset-0 mb-2 focus:outline-none'>
+                  {item.name}
+                </button>
                 <dl className='space-y-2'>
                   <div className='flex'>
                     <dt className='font-bold'>Description:</dt>
@@ -97,7 +99,7 @@ function Home() {
                     <dd className='pl-2'>{item.fruit}</dd>
                   </div>
                 </dl>
-              </button>
+              </div>
             )) : null}
           </div>
           <div className='mt-8'>

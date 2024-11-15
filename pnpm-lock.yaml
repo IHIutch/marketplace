@@ -33,8 +33,8 @@ importers:
         specifier: ^1.81.10
         version: 1.81.10(@tanstack/router-generator@1.81.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/start':
-        specifier: ^1.81.10
-        version: 1.81.10(@types/node@22.9.0)(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)
+        specifier: ^1.81.11
+        version: 1.81.11(@types/node@22.9.0)(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)
       '@tanstack/zod-form-adapter':
         specifier: ^0.35.0
         version: 0.35.0(zod@3.23.8)
@@ -1195,8 +1195,8 @@ packages:
     resolution: {integrity: sha512-kiD8z6W/nZsx3A83DXBSQCLisXkZ2FpEneQRNk+62V828LbttWZ/6SkeRiO1pP9DklfZiCFjm9/LoBY95biHkQ==}
     engines: {node: '>=12'}
 
-  '@tanstack/start@1.81.10':
-    resolution: {integrity: sha512-oQJOaNH+vZf5Tlp/+OJTcdNKp7xEQi8AVvqhfYeOmBBSGyYa+3SPtOfIVaE9R/x++IAmoJGPbBJKRleX4GLdiA==}
+  '@tanstack/start@1.81.11':
+    resolution: {integrity: sha512-DHuREzTxaIOodyk1ZFASun72k1OKGcshYZ8e8W7UoUTs3NMejKrCGQGV3xvTkiBiLFxXWsFJAXhspCe9geo9sQ==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -4200,7 +4200,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/start@1.81.10(@types/node@22.9.0)(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)':
+  '@tanstack/start@1.81.11(@types/node@22.9.0)(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)':
     dependencies:
       '@tanstack/react-cross-context': 1.81.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-router': 1.81.10(@tanstack/router-generator@1.81.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
