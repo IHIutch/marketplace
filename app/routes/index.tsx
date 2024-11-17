@@ -26,23 +26,27 @@ const getItems = createServerFn({ method: 'GET' }).handler(() => {
 })
 
 const updateItems = createServerFn({ method: "POST" })
-  .validator(data => {
-    return itemSchema.extend({ idx: z.number() }).parse(data)
-  })
-  .handler(async (ctx) => {
+  .validator((data: FormData) => data)
+  .handler(async ({ data }) => {
+
+    const idx = Number(data.get('activeIdx'))
+    const name = String(data.get('name'))
+    const description = String(data.get('description'))
+    const fruit = String(data.get('fruit'))
+
     const items = await readItems()
 
-    if (ctx.data.idx === -1) {
+    if (idx === -1) {
       items.push({
-        name: ctx.data.name,
-        description: ctx.data.description,
-        fruit: ctx.data.fruit
+        name,
+        description,
+        fruit
       })
     } else {
-      items[ctx.data.idx] = {
-        name: ctx.data.name,
-        description: ctx.data.description,
-        fruit: ctx.data.fruit
+      items[idx] = {
+        name,
+        description,
+        fruit
       }
     }
     await fs.promises.writeFile(filePath, JSON.stringify(items, null, 2))
@@ -123,14 +127,9 @@ function Home() {
                 async (event) => {
                   event.preventDefault()
                   const target = event.currentTarget
-                  const formData = new FormData(target)
+                  // const formData = new FormData(target)
                   await updateItems({
-                    data: {
-                      idx: activeIdx,
-                      name: String(formData.get('name')),
-                      description: String(formData.get('description')),
-                      fruit: String(formData.get('fruit'))
-                    }
+                    data: new FormData(target)
                   }).then(() => {
                     router.invalidate()
                     setIsOpen(false)
@@ -143,6 +142,7 @@ function Home() {
 
                 <div className='space-y-4 mt-4'>
                   <div>
+                    <input type="text" name="activeIdx" defaultValue={activeIdx} hidden />
                     <label htmlFor="name" className="block">Name</label>
                     <div className="mt-2 relative">
                       <input
