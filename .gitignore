@@ -1,16 +1,5 @@
 node_modules
-package-lock.json
-yarn.lock
 
-.DS_Store
-.cache
+/.cache
+/build
 .env
-.vercel
-.output
-.vinxi
-
-/build/
-/api/
-/server/build
-/public/build
-.vinxi
