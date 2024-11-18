@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@ark-ui/react": "^4.4.3",
-    "@fontsource-variable/public-sans": "^5.1.1",
     "@fontsource-variable/source-sans-3": "^5.1.0",
     "@fontsource/merriweather": "^5.1.0",
     "@tailwindcss/container-queries": "^0.1.1",
