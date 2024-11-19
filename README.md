@@ -1,40 +1,51 @@
-# Welcome to Remix!
+# Marketplace
 
-- 📖 [Remix docs](https://remix.run/docs)
+## How to run
 
-## Development
+`pnpm i && pnpm dev`
 
-Run the dev server:
+[Stackblitz](https://stackblitz.com/github/IHIutch/marketplace)
 
-```shellscript
-npm run dev
-```
+## Technical Decisions
 
-## Deployment
+### Framework
+I chose to use [Remix](https://remix.run/) because I wanted to use a framework where I could simulate receiving and sending data to the backend. With Remix, it is easy to make sure your the data sent over the network is typesafe. It provides several convenient hooks to manage sending and receiving data as well as managing network requests.
 
-First, build your app for production:
+### Libraries
 
-```sh
-npm run build
-```
+#### [Zod](https://zodjs.netlify.app/) 
 
-Then run the app in production mode:
+This provides the data validation layer when sending and receiving data. Valid data becomes typesafe, otherwise an error is thrown.
 
-```sh
-npm start
-```
+#### [Tailwind](https://tailwindcss.com/)
 
-Now you'll need to pick a host to deploy it to.
+Used for styling. Tailwind makes it easy to make adjustments to the interface without having to get distracted naming classes and fighting the style cascade.
 
-### DIY
+I've recently made a [Tailwind version of USWDS](https://uswds-tailwind.com/), so I've used that here.
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+#### [Ark UI](https://ark-ui.com/react/docs/components/dialog)
 
-Make sure to deploy the output of `npm run build`
+Ark UI is the foundation to an excellent library, Chakra UI. I chose to use Ark UI because it provides basic, composable functionality with stylistic opinions. Ark UI/Chakra UI prioritizes accessibility, which is helpful when using more complicated components like Modals/Dialogs.
 
-- `build/server`
-- `build/client`
+## Design Choices
 
-## Styling
+1. The mockup looked similar enough to USWDS, so I chose to use that as a starting point for this project.
+   
+2. The heading background color is slightly different than the mockup. When using a predefined design system, this sort of difference in a design file is either unintentional/accidental or warrants a conversation as to why it's different and if it should be, preserving the integrity of the design system.
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+    In this case, I used the closest matching color from the design system.
+
+3. Interactive states on the "household member" buttons 
+    
+    These are not USWDS components, but are still buttons. Ideally, they'd share interactive styles to communicate their functionality and aid accessibility, like their "focus" state.
+
+## Additional Questions
+
+1. Why is the heading color "different"? Is that intentional? If so, should it be?
+2. What interactive states should their be on the "household member" buttons? Hover, focus, active, etc?
+3. What should editing these values look like? Interactive behavior for that experience (modal, drawer, new page, etc)?
+4. Form validation states. What fields are required? How should we handle form errors/success and invalid/valid states?
+5. Should "favorite fruit" be validated? Are there specific options where using a `select`, `checkbox`, or `combobox` makes more sense than a text input?
+6. What happens if someone adds a long name, description, or fruit? Is there a design to handle that or should we limit input length?
+7. Should you be able to delete users? What does that look like?
+8. What does it look like if there are no users?
