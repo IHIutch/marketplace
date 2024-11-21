@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Dialog, Portal } from "@ark-ui/react";
 import { Form, Link, useLoaderData, useSubmit } from '@remix-run/react'
 import fs from 'node:fs'
-import z from 'zod'
+import { z } from 'zod'
 import { ActionFunctionArgs } from '@remix-run/node';
 
 const filePath = 'items.json'

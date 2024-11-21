@@ -4,8 +4,9 @@
 
 `pnpm i && pnpm dev`
 
-[Stackblitz / Repo Fork](https://stackblitz.com/github/IHIutch/marketplace)
-[Stackblitz w/ updated API](https://stackblitz.com/edit/github-nujzdp)
+[Stackblitz / Repo Fork](https://stackblitz.com/github/IHIutch/marketplace) (original)
+
+[Stackblitz w/ API](https://stackblitz.com/edit/github-nujzdp) (updated)
 
 ## Technical Decisions
 
